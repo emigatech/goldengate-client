@@ -24,7 +24,6 @@ class FormComponent extends Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault();
 
         this.setState(prevState => ({
             ...prevState,
