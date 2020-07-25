@@ -2,42 +2,84 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+
+    <link rel="icon" href="%PUBLIC_URL%/assets/images/favicon.ico" />
+    <meta name="robots" content="index,follow" />
+  	<meta name="google" content="notranslate" />
+    <meta name="author" content="Emin Muhammadi, and emiga.tech contributors" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  	<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  	<link rel="dns-prefetch" href="https://www.gstatic.com" />
+  	<link rel="dns-prefetch" href="https://storage.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <title>Goldengate - Scrape The Internet</title>
+  	<meta name="description" content="goldegate.emiga.tech provides a open-source API for scraping dynamic or static websites.">
+
+    <link rel="canonical" href="https://goldengate.emiga.tech" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="%PUBLIC_URL%/assets/images/apple-icon-57x57.png" />
+  	<link rel="apple-touch-icon" sizes="60x60" href="%PUBLIC_URL%/assets/images/apple-icon-60x60.png" />
+  	<link rel="apple-touch-icon" sizes="72x72" href="%PUBLIC_URL%/assets/images/apple-icon-72x72.png" />
+  	<link rel="apple-touch-icon" sizes="76x76" href="%PUBLIC_URL%/assets/images/apple-icon-76x76.png" />
+  	<link rel="apple-touch-icon" sizes="114x114" href="%PUBLIC_URL%/assets/images/apple-icon-114x114.png" />
+  	<link rel="apple-touch-icon" sizes="120x120" href="%PUBLIC_URL%/assets/images/apple-icon-120x120.png" />
+  	<link rel="apple-touch-icon" sizes="144x144" href="%PUBLIC_URL%/assets/images/apple-icon-144x144.png" />
+  	<link rel="apple-touch-icon" sizes="152x152" href="%PUBLIC_URL%/assets/images/apple-icon-152x152.png" />
+  	<link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/assets/images/apple-icon-180x180.png" />
+  	<link rel="icon" type="image/png" sizes="192x192"  href="%PUBLIC_URL%/assets/images/android-icon-192x192.png" />
+  	<link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/assets/images/favicon-32x32.png" />
+  	<link rel="icon" type="image/png" sizes="96x96" href="%PUBLIC_URL%/assets/images/favicon-96x96.png" />
+  	<link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/assets/images/favicon-16x16.png" />
+    <link rel="search" href="%PUBLIC_URL%/search.xml" type="application/opensearchdescription+xml" title="emiga.tech" />
+
+    <meta name="msapplication-TileColor" content="#f3f3f3" />
+  	<meta name="msapplication-TileImage" content="%PUBLIC_URL%/assets/images/ms-icon-144x144.png" />
+  	<meta name="msapplication-config" content="%PUBLIC_URL%/assets/images/browserconfig.xml" />
+  	<meta name="theme-color" content="#f3f3f3" />
+
+    <!-- Twitter -->
+  	<meta name="twitter:card" content="summary_large_image">
+  	<meta name="twitter:site" content="@3mig4">
+  	<meta name="twitter:creator" content="@3mig4">
+  	<meta name="twitter:title" content="Goldengate - Scrape The Internet">
+  	<meta name="twitter:description" content="goldengate.emiga.tech provides a open-source API for scraping dynamic or static websites.">
+  	<meta name="twitter:image" content="https://emiga.tech/images/emiga-logo.png">
+  	<!-- OG -->
+  	<meta property="og:url" content="https://goldengate.emiga.tech">
+  	<meta property="og:title" content="Goldengate - Scrape The Internet">
+  	<meta property="og:description" content="goldengate.emiga.tech provides a open-source API for scraping dynamic or static websites.">
+  	<meta property="og:type" content="website">
+  	<meta property="og:image" content="https://goldengate.emiga.tech/images/emiga-logo.png">
+  	<meta property="og:image:secure_url" content="https://goldengate.emiga.tech/images/emiga-logo.png">
+  	<meta property="og:image:type" content="image/png">
+  	<meta property="og:image:width" content="1200">
+  	<meta property="og:image:height" content="630">
+
+    <script type='application/ld+json'>
+  	[{"@context":"http://www.schema.org","@type":"WebSite","name":"emiga.tech","alternateName":"emiga.tech &mdas; You know us","url":"https://emiga.tech"},{"@context":"http://www.schema.org","@type":"person","name":"Emin Muhammadi","jobTitle":"Founder","url":"https://emiga.tech","address":{"@type":"PostalAddress","streetAddress":"Azerbaijan,Baku ","postOfficeBoxNumber":"AZ 1000","addressLocality":"Baku","postalCode":"AZ 1000","addressCountry":"Azerbaijan"},"email":"emin@emiga.tech","birthDate":"1998-10-09"},{"@context":"http://schema.org","@type":"WebSite","url":"https://emiga.tech/","potentialAction":{"@type":"SearchAction","target":"https://emiga.tech/?q={search_term_string}","query-input":"required name=search_term_string"}}]
+   	</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSDKWE5580"></script>
+  	<script>
+  	  window.dataLayer = window.dataLayer || [];
+  	  function gtag(){dataLayer.push(arguments);}
+  	  gtag('js', new Date());
+
+  	  gtag('config', 'G-BSDKWE5580');
+  	</script>
+    <script type="text/javascript">
+      window.onload=function(){function e(e){return e.stopPropagation?e.stopPropagation():window.event&&(window.event.cancelBubble=!0),e.preventDefault(),!1}document.addEventListener("contextmenu",function(e){e.preventDefault()},!1),document.addEventListener("keydown",function(t){t.ctrlKey&&t.shiftKey&&73==t.keyCode&&e(t),t.ctrlKey&&t.shiftKey&&74==t.keyCode&&e(t),83==t.keyCode&&(navigator.platform.match("Mac")?t.metaKey:t.ctrlKey)&&e(t),t.ctrlKey&&85==t.keyCode&&e(t),123==event.keyCode&&e(t)},!1)};
+    </script>
   </head>
-  <body>
+  <body class="bg-light" oncontextmenu="return false;">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <div id="goldengate-app"></div>
   </body>
 </html>
