@@ -79,7 +79,7 @@ class FormComponent extends Component {
             <>
                 <ValidatorForm
                     ref="form"
-                    onSubmit={(e)=>{e.preventDefault();this.recaptcha.execute();}}
+                    onSubmit={(e)=>{this.recaptcha.execute();}}
                     onError={(err) => { console.error(err) }}
                     noValidate
                     className="container"
