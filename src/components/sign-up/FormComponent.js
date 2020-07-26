@@ -201,7 +201,7 @@ class FormComponent extends Component {
                         type="submit"
                         fullWidth
                         size="large"
-                        className="pt-3 pb-3 mt-2 mb-2 shadow-sm"
+                        className="text-lowercase text-capitalize pt-3 pb-3 mt-2 mb-2 shadow-sm"
                         name="submit"
                         variant="contained"
                         color="primary"

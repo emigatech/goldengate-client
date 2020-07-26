@@ -2,6 +2,7 @@ import React from "react";
 import FormComponent from "./../components/sign-in/FormComponent";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 function SignIn() {
     let history = useHistory();
@@ -13,12 +14,14 @@ function SignIn() {
                     <div className="col-md-6">
                         <div className="pt-5">
                             <h1 className="container" style={{fontSize:'3rem'}}>
-                                <b>Sign in</b>
+                                <Link to="/" className="link">
+                                    <ArrowBackIcon fontSize="large"/>
+                                </Link>
+                                <b className="pr-2 pl-2">Sign in</b>
                             </h1>
                             <FormComponent history={history}/>
                             <div className="container pt-2">
-                                <p>Don't have an account? <Link to="/sign-up" className="link">Sign up</Link></p>
-                            </div>
+                                <p>Don't have an account? <Link to="/sign-up" className="link">Sign up</Link></p>                            </div>
                         </div>
                     </div>
                 </div>
