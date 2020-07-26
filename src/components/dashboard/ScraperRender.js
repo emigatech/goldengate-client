@@ -3,6 +3,7 @@ import { API_URL } from '../../config';
 import {Button} from "@material-ui/core";
 import Loading from './../../images/loading.gif';
 import { JsonToTable } from "react-json-to-table";
+import Divider from '@material-ui/core/Divider';
 
 class ScraperRender extends Component {
     constructor(props) {
@@ -91,8 +92,16 @@ class ScraperRender extends Component {
                                 <div className="col-sm-12 col-md-6 mt-2 mb-2">
                                     <p className="mt-1 mb-1">#{key}</p>
                                     <div className="pt-4 pb-4">
-                                        <h1 className="mt-2 mb-2">{url}</h1>
-                                        <h6 >
+                                        <h1 className="mt-2 mb-2" style={{
+                                            whiteSpace: 'nowrap',
+                                            textOverflow: 'ellipsis',
+                                            overflow: 'hidden',
+                                            display: 'inherit',
+                                            width: '200px'
+                                        }}>
+                                            {url}
+                                        </h1>
+                                        <h6>
                                             {data?.seo?.title?.meta[0] ? data.seo.title.meta[0] : null}
                                         </h6>
                                         <p>
@@ -101,11 +110,88 @@ class ScraperRender extends Component {
                                     </div>
                                 </div>
 
-                                <div className="col-sm-12 col-md-12 mt-2 mb-2 table-responsive">
+                                <div className="col-sm-12 col-md-12 mt-2 mb-2">
                                     <h1 style={{fontSize:'3rem'}}>
                                         <b>Data Explorer</b>
                                     </h1>
-                                    <JsonToTable className="w-100" json={data} />
+
+                                    <Divider style={{marginTop:'10px',marginBottom:'10px'}}/>
+
+                                    <h2 style={{fontSize:'2rem'}}>
+                                        <b>Seo Data</b>
+                                    </h2>
+                                    <div className="table-responsive pt-2 pb-2 mt-2 mb-2">
+                                        <JsonToTable 
+                                            className="w-100 data-explorer"
+                                            key="data-explorer-text"
+                                            json={data.seo} 
+                                        />
+                                    </div>
+                                    
+                                    <Divider style={{marginTop:'10px',marginBottom:'10px'}}/>
+
+                                    <h2 style={{fontSize:'2rem'}}>
+                                        <b>Links on website</b>
+                                    </h2>
+                                    <div className="table-responsive pt-2 pb-2 mt-2 mb-2">
+                                        <JsonToTable 
+                                            className="w-100 data-explorer"
+                                            key="data-explorer-text"
+                                            json={data.url} 
+                                        />
+                                    </div>
+                                    
+                                    <Divider style={{marginTop:'10px',marginBottom:'10px'}}/>
+
+                                    <h2 style={{fontSize:'2rem'}}>
+                                        <b>Media Data</b>
+                                    </h2>
+                                    <div className="table-responsive pt-2 pb-2 mt-2 mb-2">
+                                        <JsonToTable 
+                                            className="w-100 data-explorer"
+                                            key="data-explorer-media"
+                                            json={data.media} 
+                                        />
+                                    </div>
+
+                                    <Divider style={{marginTop:'10px',marginBottom:'10px'}}/>
+
+                                    <h2 style={{fontSize:'2rem'}}>
+                                        <b>Text Data</b>
+                                    </h2>
+                                    <div className="table-responsive pt-2 pb-2 mt-2 mb-2">
+                                        <JsonToTable 
+                                            className="w-100 data-explorer"
+                                            key="data-explorer-text"
+                                            json={data.text} 
+                                        />
+                                    </div>
+
+                                    <Divider style={{marginTop:'10px',marginBottom:'10px'}}/>
+
+                                    <h2 style={{fontSize:'2rem'}}>
+                                        <b>Table Data</b>
+                                    </h2>
+                                    <div className="table-responsive pt-2 pb-2 mt-2 mb-2">
+                                        <JsonToTable 
+                                            className="w-100 data-explorer"
+                                            key="data-explorer-table"
+                                            json={data.table} 
+                                        />
+                                    </div>
+
+                                    <Divider style={{marginTop:'10px',marginBottom:'10px'}}/>
+
+                                    <h2 style={{fontSize:'2rem'}}>
+                                        <b>Lists on website</b>
+                                    </h2>
+                                    <div className="table-responsive pt-2 pb-2 mt-2 mb-2">
+                                        <JsonToTable 
+                                            className="w-100 data-explorer"
+                                            key="data-explorer-list"
+                                            json={data.list} 
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>

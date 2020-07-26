@@ -11,6 +11,7 @@ class FormComponent extends Component {
         super(props);
         this.state = {
             is_logged: false,
+            startStatement: false,
             email: '',
             password: '',
             error: ''
@@ -27,6 +28,7 @@ class FormComponent extends Component {
 
         this.setState(prevState => ({
             ...prevState,
+            startStatement: true,
             error: '',
         }));
 
@@ -54,6 +56,7 @@ class FormComponent extends Component {
                         this.setState(prevState => ({
                             ...prevState,
                             is_logged: true,
+                            startStatement: true,
                             error: ''
                         }));
                         (this.props.history).push('/dashboard');
@@ -62,6 +65,7 @@ class FormComponent extends Component {
                         this.setState(prevState => ({
                             ...prevState,
                             is_logged: false,
+                            startStatement: false,
                             error : data.message
                         }));
                     }
@@ -73,7 +77,7 @@ class FormComponent extends Component {
     }
 
     render() {
-        const {email, password, error} = this.state;
+        const {email, password, error, startStatement} = this.state;
         return (
             <>
                 <ValidatorForm
@@ -104,6 +108,7 @@ class FormComponent extends Component {
                         label="Email"
                         variant="outlined"
                         placeholder="john@doe.com"
+                        disabled={startStatement}
                         InputLabelProps={{
                             shrink: true,
                             'aria-label': 'Email'
@@ -126,6 +131,7 @@ class FormComponent extends Component {
                         fullWidth
                         label="Password"
                         variant="outlined"
+                        disabled={startStatement}
                         InputLabelProps={{
                             shrink: true,
                             'aria-label': 'Password'
@@ -146,6 +152,7 @@ class FormComponent extends Component {
                         variant="contained"
                         color="primary"
                         disableElevation
+                        disabled={startStatement}
                     >Sign in
                     </Button>
                 </ValidatorForm>

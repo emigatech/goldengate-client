@@ -34,3 +34,11 @@
   overflow-y: scroll;
   border: 1px solid rgba(0,0,0,0.1);
 }
+.data-explorer {
+  display: inherit;
+  & td{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

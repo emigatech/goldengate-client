@@ -108,6 +108,7 @@ class Main extends Component {
                                     variant="outlined"
                                     name="device"
                                     className="mt-4 mb-2"
+                                    disabled={startStatement}
                                     onChange={e=> this.handleChange({
                                         device: e.target.value
                                     })}
@@ -129,6 +130,7 @@ class Main extends Component {
                                 fullWidth
                                 variant="outlined"
                                 placeholder="https://example.com"
+                                disabled={startStatement}
                                 InputLabelProps={{
                                     shrink: true,
                                     'aria-label': 'Email'
@@ -151,6 +153,7 @@ class Main extends Component {
                                 variant="contained"
                                 color="primary"
                                 disableElevation
+                                disabled={startStatement}
                                 style={{marginTop:'20px', marginBottom:'20px'}}
                             >Scrape
                             </Button>
