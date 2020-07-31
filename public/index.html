@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
 
-    <link rel="icon"    href="%PUBLIC_URL%/assets/images/favicon.ico" />
+	<link rel="icon"    href="%PUBLIC_URL%/assets/images/favicon.ico" />
     <meta name="robots" content="index,follow" />
   	<meta name="google" content="notranslate" />
     <meta name="author" content="Emin Muhammadi, and emiga.tech contributors" />
@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
-    <title>Goldengate - Scrape The Internet</title>
+    <title>Goldengate &mdash; Scrape The Internet</title>
   	<meta name="description" content="goldegate.emiga.tech provides a open-source API for scraping dynamic or static websites.">
 
     <link rel="canonical" href="https://goldengate.emiga.tech" />
@@ -104,6 +104,27 @@
 		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
 		firebase.analytics();
+	</script>
+
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '1157798081258570',
+				cookie     : true,
+				xfbml      : true,
+				version    : '0.2.0'
+			});
+			
+			FB.AppEvents.logPageView();   
+		};
+	
+		(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "https://connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 	</script>
   </body>
 </html>

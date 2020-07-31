@@ -5,10 +5,11 @@ import Alert from "@material-ui/lab/Alert/Alert";
 import {Button} from "@material-ui/core";
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-import { API_URL } from '../../config';
+import { API_URL, GaTag } from '../../config';
 import qs from 'qs';
 import ScraperRender from './ScraperRender';
 import StartToScrape from './StartToScrape';
+import ReactGA from 'react-ga';
 
 class Main extends Component {
     constructor(props) {
@@ -29,6 +30,19 @@ class Main extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+
+        ReactGA.initialize(
+            [
+                {
+                    trackingId: GaTag,
+                    gaOptions: {
+                        name: 'User started to scrape url',
+                        userId: (localStorage.getItem("user_id") || '').trim() || null,
+                    }
+                }
+            ],
+            { debug: true, alwaysSendToDefaultTracker: false }
+        )
 
         this.setState(prevState => ({
             ...prevState,
@@ -53,6 +67,12 @@ class Main extends Component {
             .then(res => res.json())
             .then(
                 (data)=>{
+
+                    ReactGA.event({
+                        category: 'User',
+                        action: `started to scrape url => ${(this.props.data).url || null}`
+                    })
+
                     if(data.status === 201)
                     {
                         this.setState(prevState => ({
@@ -72,6 +92,12 @@ class Main extends Component {
                         (this.props.history).push("/sign-in");
                     }
                     else {
+                        
+                        ReactGA.exception({
+                            description: `Scrape error: ${data.message}`,
+                            fatal: true
+                        });
+
                         this.setState(prevState => ({
                             ...prevState,
                             startStatement: false,

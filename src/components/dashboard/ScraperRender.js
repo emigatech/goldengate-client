@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { API_URL } from '../../config';
+import { API_URL, GaTag } from '../../config';
 import {Button} from "@material-ui/core";
 import Loading from './../../images/loading.gif';
 import { JsonToTable } from "react-json-to-table";
 import Divider from '@material-ui/core/Divider';
+import ReactGA from 'react-ga';
 
 class ScraperRender extends Component {
     constructor(props) {
@@ -18,6 +19,20 @@ class ScraperRender extends Component {
         }
     }
     componentDidMount () {
+
+        ReactGA.initialize(
+            [
+                {
+                    trackingId: GaTag,
+                    gaOptions: {
+                        name: 'User started to fetch data',
+                        userId: (localStorage.getItem("user_id") || '').trim() || null,
+                    }
+                }
+            ],
+            { debug: true, alwaysSendToDefaultTracker: false }
+        )
+
         fetch(`${API_URL}/api/data/results/${this.state.key}`, {
             method: 'get',
             headers: {
@@ -27,6 +42,12 @@ class ScraperRender extends Component {
             .then(res => res.json())
             .then(
                 (data)=>{
+                    
+                    ReactGA.event({
+                        category: 'User',
+                        action: `searched url => ${(this.props.data).url || null}`
+                    })
+
                     if(data.status === 200)
                     {
                         this.setState(prevState => ({
@@ -45,6 +66,12 @@ class ScraperRender extends Component {
                         (this.props.history).push("/sign-in");
                     }
                     else {
+
+                        ReactGA.exception({
+                            description: `Scrape error: ${data.message}`,
+                            fatal: true
+                        });
+
                         this.setState(prevState => ({
                             ...prevState,
                             isLoaded: false,
@@ -54,6 +81,11 @@ class ScraperRender extends Component {
                 }
             )
             .catch((err)=>{
+                ReactGA.exception({
+                    description: `Scrape error: ${err}`,
+                    fatal: true
+                });
+
                 console.error('Scrape error:',err)
             })
     }

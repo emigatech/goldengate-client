@@ -1,6 +1,6 @@
 {
   "name": "goldengate-client",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "4.11.0",
@@ -11,6 +11,7 @@
     "qs": "6.9.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-ga": "3.1.2",
     "react-google-invisible-recaptcha": "0.2.11",
     "react-helmet": "6.1.0",
     "react-json-to-table": "0.1.5",

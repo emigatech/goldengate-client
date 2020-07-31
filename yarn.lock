@@ -9044,6 +9044,11 @@ react-form-validator-core@0.6.4:
     promise-polyfill "8.1.0"
     react-lifecycles-compat "^3.0.2"
 
+react-ga@3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-3.1.2.tgz#e13f211c51a2e5c401ea69cf094b9501fe3c51ce"
+  integrity sha512-OJrMqaHEHbodm+XsnjA6ISBEHTwvpFrxco65mctzl/v3CASMSLSyUkFqz9yYrPDKGBUfNQzKCjuMJwctjlWBbw==
+
 react-google-invisible-recaptcha@0.2.11:
   version "0.2.11"
   resolved "https://registry.yarnpkg.com/react-google-invisible-recaptcha/-/react-google-invisible-recaptcha-0.2.11.tgz#cb9eed3348d251eb0faa3a2d56ca4f9095fffa6e"

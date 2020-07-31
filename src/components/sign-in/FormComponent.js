@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import { API_URL, GRecaptcha } from '../../config';
+import { API_URL, GRecaptcha, GaTag } from '../../config';
 import qs from 'qs';
 import Recaptcha from 'react-google-invisible-recaptcha';
+import ReactGA from 'react-ga';
 
 class FormComponent extends Component {
     constructor(props) {
@@ -25,6 +26,18 @@ class FormComponent extends Component {
     }
 
     handleSubmit(e) {
+
+        ReactGA.initialize(
+            [
+                {
+                    trackingId: GaTag,
+                    gaOptions: {
+                        name: 'Sign in',
+                    }
+                }
+            ],
+            { debug: true, alwaysSendToDefaultTracker: false }
+        )
 
         this.setState(prevState => ({
             ...prevState,
@@ -62,6 +75,11 @@ class FormComponent extends Component {
                         (this.props.history).push('/dashboard');
                     }
                     else {
+                        ReactGA.exception({
+                            description: `Sign in error: ${data.message}`,
+                            fatal: true
+                        });
+
                         this.setState(prevState => ({
                             ...prevState,
                             is_logged: false,
@@ -72,6 +90,11 @@ class FormComponent extends Component {
                 }
             )
             .catch((err)=>{
+                ReactGA.exception({
+                    description: `Sign in error: ${err}`,
+                    fatal: true
+                });
+
                 console.error('Sign in error:',err)
             })
     }

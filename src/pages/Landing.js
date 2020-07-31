@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 import Logo from './../images/emiga-logo.png';
 import Landing from './../images/landing.PNG';
 import {Button} from "@material-ui/core";
+import { Helmet } from "react-helmet";
 
 function SignUp() {
+    
     return(
         <>
+            <Helmet>
+                <title>GoldenGate &mdash; Scrape The Internet</title>
+            </Helmet>
+
             <div className="container pt-3">
                 <div className="text-center">
                     <img src={Logo} alt="goldengate.emiga.tech"
