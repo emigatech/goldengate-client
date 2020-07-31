@@ -104,9 +104,8 @@
 		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
 		firebase.analytics();
-	</script>
 
-	<script>
+		// Facebook
 		window.fbAsyncInit = function() {
 			FB.init({
 				appId      : '1157798081258570',
@@ -114,10 +113,8 @@
 				xfbml      : true,
 				version    : 'v7.0'
 			});
-			
 			FB.AppEvents.logPageView();   
 		};
-	
 		(function(d, s, id){
 		var js, fjs = d.getElementsByTagName(s)[0];
 		if (d.getElementById(id)) {return;}
