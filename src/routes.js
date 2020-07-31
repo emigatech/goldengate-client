@@ -5,6 +5,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
 import Landing from "./pages/Landing";
+import Error from "./pages/Error";
 
 import "./style/global.scss";
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -51,7 +52,7 @@ function Routes(){
                         <Dashboard/>
                     </Route>
                     <Route path="*">
-                        <h1>Error 404</h1>
+                        <Error/>
                     </Route>
                 </Switch>
             </Router>
