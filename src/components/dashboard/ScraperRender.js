@@ -103,23 +103,23 @@ class ScraperRender extends Component {
                                     <div className="browser-container w-100">
                                         <img className="w-100 p-0" alt={html} src={image}/>
                                     </div>
-                                    <Button
-                                        fullWidth
-                                        size="large"
-                                        className="pt-3 pb-3 mt-2 mb-2 shadow-sm"
-                                        variant="contained"
-                                        color="primary"
-                                        disableElevation
-                                    >
-                                        <a rel="noopener noreferrer"
+                                    <a rel="noopener noreferrer"
                                            href={html}
                                            target="_blank"
                                            className="link"
                                            style={{color:'#ffffff'}}
+                                    >
+                                        <Button
+                                            fullWidth
+                                            size="large"
+                                            className="pt-3 pb-3 mt-2 mb-2 shadow-sm"
+                                            variant="contained"
+                                            color="primary"
+                                            disableElevation
                                         >
-                                            View Website
-                                        </a>
-                                    </Button>
+                                            View Website   
+                                        </Button>        
+                                    </a>
                                 </div>
                                 <div className="col-sm-12 col-md-6 mt-2 mb-2">
                                     <p className="mt-1 mb-1">#{key}</p>
