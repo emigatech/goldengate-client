@@ -27,7 +27,7 @@ class FormComponent extends Component {
         this.setState(v);
     }
 
-    handleSubmit(e) {
+    handleSubmit(e, recaptcha) {
 
         ReactGA.initialize(
             [
@@ -47,7 +47,7 @@ class FormComponent extends Component {
             error: '',
         }));
 
-        fetch(`${API_URL}/api/auth/register`,
+        fetch(`${API_URL}/api/auth/register?verify=${recaptcha.getResponse()}`,
             {
                 method: 'post',
                 headers: {
@@ -73,7 +73,9 @@ class FormComponent extends Component {
                         }));
                         (this.props.history).push('/sign-in');
                     }
-                    else {
+                    else {      
+                        recaptcha.reset();
+                                          
                         ReactGA.exception({
                             description: `Sign up error: ${data.message}`,
                             fatal: true
@@ -83,16 +85,29 @@ class FormComponent extends Component {
                             ...prevState,
                             is_registered: false,
                             startStatement: false,
+                            email: '',
+                            password: '',
                             error : data.message
                         }));
                     }
                 }
             )
             .catch((err)=>{
+                recaptcha.reset();
+
                 ReactGA.exception({
                     description: `Sign up error: ${err}`,
                     fatal: true
                 });
+
+                this.setState(prevState => ({
+                    ...prevState,
+                    is_registered: false,
+                    startStatement: false,
+                    email: '',
+                    password: '',
+                    error : err
+                }));
 
                 console.error('Sign up error:',err)
             })
@@ -105,7 +120,7 @@ class FormComponent extends Component {
                 <ValidatorForm
                     ref="form"
                     onSubmit={(e)=>{this.recaptcha.execute();}}
-                    onError={(err) => { console.error(err) }}
+                    onError={(err) => {this.recaptcha.reset(); console.error(err);}}
                     noValidate
                     className="container"
                     autoComplete="off"
@@ -114,7 +129,7 @@ class FormComponent extends Component {
                     { error !== '' ? <Alert severity="error" className="mt-3 mb-3">{error}</Alert> : ''}
                     <Recaptcha
                         ref={ ref => {this.recaptcha = ref;}}
-                        onResolved={(e)=>{this.handleSubmit(e);}}
+                        onResolved={(e)=>{this.handleSubmit(e,this.recaptcha);}}
                         sitekey={GRecaptcha}
                     />
                     <div className="row">
