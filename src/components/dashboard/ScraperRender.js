@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { API_URL, GaTag } from '../../config';
+import { API_URL, GaTag, GaDebug } from '../../config';
 import {Button} from "@material-ui/core";
 import Loading from './../../images/loading.gif';
 import { JsonToTable } from "react-json-to-table";
@@ -30,7 +30,7 @@ class ScraperRender extends Component {
                     }
                 }
             ],
-            { debug: true, alwaysSendToDefaultTracker: false }
+            { debug: GaDebug, alwaysSendToDefaultTracker: false }
         )
 
         fetch(`${API_URL}/api/data/results/${this.state.key}`, {

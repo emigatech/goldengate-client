@@ -5,7 +5,7 @@ import Alert from "@material-ui/lab/Alert/Alert";
 import {Button} from "@material-ui/core";
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-import { API_URL, GaTag } from '../../config';
+import { API_URL, GaTag, GaDebug } from '../../config';
 import qs from 'qs';
 import ScraperRender from './ScraperRender';
 import StartToScrape from './StartToScrape';
@@ -41,7 +41,7 @@ class Main extends Component {
                     }
                 }
             ],
-            { debug: true, alwaysSendToDefaultTracker: false }
+            { debug: GaDebug, alwaysSendToDefaultTracker: false }
         )
 
         this.setState(prevState => ({
@@ -70,7 +70,7 @@ class Main extends Component {
 
                     ReactGA.event({
                         category: 'User',
-                        action: `started to scrape url => ${(this.props.data).url || null}`
+                        action: `started to scrape url => ${this.state.url || null}`
                     })
 
                     if(data.status === 201)

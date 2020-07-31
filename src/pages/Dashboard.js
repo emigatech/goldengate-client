@@ -5,7 +5,7 @@ import Nav from '../components/dashboard/Nav';
 import { Paper } from "@material-ui/core";
 import { Helmet } from "react-helmet";
 import ReactGA from 'react-ga';
-import {GaTag} from './../config';
+import {GaTag, GaDebug} from './../config';
 
 function Dashboard() {
     let history = useHistory();
@@ -26,7 +26,7 @@ function Dashboard() {
                 }
             }
         ],
-        { debug: true, alwaysSendToDefaultTracker: false }
+        { debug: GaDebug, alwaysSendToDefaultTracker: false }
     );
 
     ReactGA.event({

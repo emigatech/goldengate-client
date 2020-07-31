@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import {API_URL, GRecaptcha, GaTag} from '../../config';
+import {API_URL, GRecaptcha, GaTag, GaDebug} from '../../config';
 import qs from 'qs';
 import Recaptcha from "react-google-invisible-recaptcha";
 import ReactGA from 'react-ga';
@@ -38,7 +38,7 @@ class FormComponent extends Component {
                     }
                 }
             ],
-            { debug: true, alwaysSendToDefaultTracker: false }
+            { debug: GaDebug, alwaysSendToDefaultTracker: false }
         )
 
         this.setState(prevState => ({
