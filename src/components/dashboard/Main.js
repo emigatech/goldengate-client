@@ -36,7 +36,7 @@ class Main extends Component {
                 {
                     trackingId: GaTag,
                     gaOptions: {
-                        name: 'User started to scrape url',
+                        name: 'Scrape',
                         userId: (localStorage.getItem("user_id") || '').trim() || null,
                     }
                 }
@@ -79,7 +79,8 @@ class Main extends Component {
                             ...prevState,
                             isLoaded: true,
                             startStatement: false,
-                            data: data
+                            data: data,
+                            error: ''
                         }));
                     }
                     else if(data.status === 401)
@@ -107,6 +108,13 @@ class Main extends Component {
                 }
             )
             .catch((err)=>{
+
+                this.setState(prevState => ({
+                    ...prevState,
+                    startStatement: false,
+                    error : err
+                }));
+
                 console.error('Scrape error:',err)
             })
     }
@@ -200,4 +208,5 @@ class Main extends Component {
     }
 }
 
+ReactGA.pageview(window.location.pathname + window.location.search);
 export default Main;

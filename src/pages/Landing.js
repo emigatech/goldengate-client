@@ -4,8 +4,28 @@ import Logo from './../images/emiga-logo.png';
 import Landing from './../images/landing.PNG';
 import {Button} from "@material-ui/core";
 import { Helmet } from "react-helmet";
+import {GaTag, GaDebug} from './../config';
+import ReactGA from 'react-ga';
 
 function SignUp() {
+    ReactGA.initialize(
+        [
+            {
+                trackingId: GaTag,
+                gaOptions: {
+                    name: 'Landing'
+                }
+            }
+        ],
+        { debug: GaDebug, alwaysSendToDefaultTracker: false }
+    );
+
+    ReactGA.event({
+        category: 'Landing',
+        action: 'Landing page rendered'
+    });
+    
+    ReactGA.pageview(window.location.pathname + window.location.search);
     
     return(
         <>
@@ -34,10 +54,25 @@ function SignUp() {
                             </Button>
                         </Link>
                     </div>
-                    <div className="col-sm-12 col-md-8 mt-5"
+                    <div className="browser col-sm-12 col-md-8 mt-5 p-0"
                          style={{height:'500px',overflow:'scroll',overflowX:'hidden'}}>
-                        <img src={Landing} alt="Landing goldengate.emiga.tech"
-                             className="img-fluid border"/>
+                        <div className="browser__head">
+                            <div className="browser__buttons">
+                            <div className="browser__button browser__button--close"></div>
+                            <div className="browser__button browser__button--minimize"></div>
+                            <div className="browser__button browser__button--maximize"></div>
+                            </div>
+                            <div className="browser__url-bar"></div>
+                            <div className="browser__options">
+                                <div className="browser__option-bar"></div>
+                                <div className="browser__option-bar"></div>
+                                <div className="browser__option-bar"></div>
+                            </div>
+                        </div>
+                        <div className="browser__viewport">
+                            <img src={Landing} alt="Landing goldengate.emiga.tech"
+                                className="img-fluid"/>
+                        </div>
                     </div>
                 </div>
             </div>

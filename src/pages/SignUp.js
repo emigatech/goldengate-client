@@ -4,8 +4,29 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import {Helmet} from "react-helmet";
+import {GaTag, GaDebug} from './../config';
+import ReactGA from 'react-ga';
 
 function SignUp() {
+    ReactGA.initialize(
+        [
+            {
+                trackingId: GaTag,
+                gaOptions: {
+                    name: 'SignUp'
+                }
+            }
+        ],
+        { debug: GaDebug, alwaysSendToDefaultTracker: false }
+    );
+
+    ReactGA.event({
+        category: 'SingUp',
+        action: 'Sign up page rendered'
+    });
+    
+    ReactGA.pageview(window.location.pathname + window.location.search);
+
     let history = useHistory();
 
     const token     = (localStorage.getItem("token") || '').trim();

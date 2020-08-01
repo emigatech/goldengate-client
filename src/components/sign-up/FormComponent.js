@@ -34,7 +34,7 @@ class FormComponent extends Component {
                 {
                     trackingId: GaTag,
                     gaOptions: {
-                        name: 'Sign up',
+                        name: 'SignUpFormComponent',
                     }
                 }
             ],
@@ -253,4 +253,5 @@ class FormComponent extends Component {
     }
 }
 
+ReactGA.pageview(window.location.pathname + window.location.search);
 export default FormComponent;

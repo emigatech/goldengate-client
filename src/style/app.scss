@@ -4,6 +4,7 @@
     background-color: black !important;
   }
 }
+
 .link {
   text-decoration: none;
   color: black;
@@ -15,6 +16,7 @@
     text-decoration: underline;
   }
 }
+
 .logo {
   height: 40px;
   &::selection{
@@ -22,18 +24,15 @@
     background-color: transparent !important;
   }
 }
+
 .bg-black {
   background-color: black !important;
 }
+
 .popper-img {
   height: 260px;
 }
-.browser-container{
-  max-height: 396px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  border: 1px solid rgba(0,0,0,0.1);
-}
+
 .data-explorer {
   display: inherit;
   & td{
@@ -41,4 +40,61 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+}
+
+.browser {
+  border: 2px solid #eaeaeb;
+  border-top: none;
+  border-radius: 4px;
+}
+
+.browser__head {
+  display: flex;
+  background: #eaeaeb;
+  align-items: center;
+  padding-right: .25rem;
+  padding-left: .25rem;
+}
+
+.browser__buttons {
+  display: flex;
+  align-items: center;
+  padding: .75rem 0;
+  margin-right: .25rem;
+}
+
+.browser__button {
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  margin-right: 4px;
+  &--close {
+    background: #fe5f56;
+  }
+  &--minimize {
+    background: #ffc22f;
+  }
+  &--maximize {
+    background: #29ca3f;
+  }
+}
+
+.browser__url-bar {
+  background: #fff;
+  height: 1rem;
+  width: 100%;
+  margin-right: .5rem;
+}
+
+.browser__options {
+  height: 1rem;
+  width: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.browser__option-bar {
+  height: 2px;
+  background: #ccc;
 }
